@@ -7,7 +7,9 @@ public static class Aikido
     connection.Open();
 
     using var command = connection.CreateCommand();
-    command.CommandText = "SELECT Name FROM Users WHERE Name = '" + userName + "' Password = '" + password + "'";
+    command.CommandText = "SELECT Name FROM Users WHERE Name = @userName AND Password = @password";
+    command.Parameters.AddWithValue("@userName", userName);
+    command.Parameters.AddWithValue("@password", password);
 
     using var reader = command.ExecuteReader();
   }
