@@ -11,7 +11,7 @@ public static class Aikido
 
     using var reader = command.ExecuteReader();
   }
-
+  var a=0;
   if(a==1){
     SqlInjection ("user1", "password")
   }
